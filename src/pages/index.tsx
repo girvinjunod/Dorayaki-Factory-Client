@@ -7,7 +7,6 @@ const Home: NextPage = () => {
       <Head>
         <title>Dashboard</title>
         <meta name="description" content="Dorayaki factory" />
-        <link rel="icon" href="favicon.ico" />
       </Head>
 
       <div className="font-bold rounded text-center">
