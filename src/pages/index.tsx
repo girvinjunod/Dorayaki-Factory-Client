@@ -16,7 +16,7 @@ const Home: NextPage = () => {
               router.push('/login')
           }
   })
-  }, [])
+  }, [router])
 
 
   return (

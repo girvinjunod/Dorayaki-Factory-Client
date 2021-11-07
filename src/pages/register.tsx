@@ -12,12 +12,12 @@ const Register: NextPage = () => {
     const [uname, setUname] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const router = useRouter()
     const [errEmail, setErrEmail] = useState(false)
     const [errUname, setErrUname] = useState(false)
     const [errPass, setErrPass] = useState(false)
     const [errConf, setErrConf] = useState(false)
     const [error, setError] = useState(false)
+    const router = useRouter()
 
     useEffect( () => {
         axios.get('http://localhost:4000/auth',{ withCredentials: true }).then(res => {
@@ -30,7 +30,7 @@ const Register: NextPage = () => {
                   console.log("not logged in")
               }
       })
-      }, [])
+      }, [router])
 
 
 
@@ -139,9 +139,9 @@ const Register: NextPage = () => {
                     {errPass ? <label htmlFor="password" className="text-red-600">Your password needs to have a minimum of 6 characters.</label> : ""}
                     <input type="password" name="confirmpassword" value={confirmPassword} placeholder="Confirm Password"
                      className="my-4 p-2 rounded" onChange ={(e) => setConfirmPassword(e.target.value)} onKeyUp={() => valConfirmPassword()}/>
-                    {errConf ? <label htmlFor="confirmpassword" className="text-red-600">Those passwords didn't match, try again.</label> : ""}
+                    {errConf ? <label htmlFor="confirmpassword" className="text-red-600">Those passwords didn&apos;t match, try again.</label> : ""}
                     {error ? <p className="text-red-600 font-bold">Register failed, please fill the fields correctly.</p>: ""}
-                    <p className="text-white">Already have an account? <Link href="/login"><span className="text-yellow-400 cursor-pointer">Login here.</span></Link></p>
+                    <p className="text-white">Already have an account? <Link href="/login" passHref><span className="text-yellow-400 cursor-pointer">Login here.</span></Link></p>
                     <button className='mt-6 mb-4 bg-blue-400 text-white rounded-lg py-2 px-8 ml-auto hover:bg-blue-600 duration-200' onClick={onSubmit}>Login</button>
                 </form>
             </div>

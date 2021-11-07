@@ -24,7 +24,7 @@ const Login: NextPage = () => {
                   console.log("not logged in")
               }
       })
-      }, [])
+      }, [router])
 
     const reset = () => {
         setError(false)
@@ -75,7 +75,7 @@ const Login: NextPage = () => {
                     <input type="password" name="password" value={password} placeholder="Password"
                      className="my-4 p-2 rounded" onChange ={(e) => setPassword(e.target.value)} onBlur= {reset}/>
                     {error ? <p className="text-red-600 font-bold">Login failed, please fill the fields correctly.</p>: ""}
-                    <p className="text-white">Don't have an account? <Link href="/register"><span className="text-yellow-400 cursor-pointer">Register here.</span></Link></p>
+                    <p className="text-white">Don&apos;t have an account? <Link href="/register" passHref><span className="text-yellow-400 cursor-pointer">Register here.</span></Link></p>
                     <button className='mt-6 mb-4 bg-blue-400 text-white rounded-lg py-2 px-8 ml-auto hover:bg-blue-600 duration-200' onClick={onSubmit}>Login</button>
                 </form>
             </div>
