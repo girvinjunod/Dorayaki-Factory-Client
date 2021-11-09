@@ -18,12 +18,11 @@ const Detail: NextPage = ( ) => {
         axios.get('http://localhost:4000/auth',{ withCredentials: true }).then(res => {
               console.log(res.data);
               if (res.data.auth){
-                  console.log("auth")
-                  
+                  console.log("auth")  
               }
               else{
                   console.log("not logged in")
-                //   router.push('/')
+                  router.push('/login')
               }
         })
         if (id != undefined){
@@ -50,14 +49,20 @@ const Detail: NextPage = ( ) => {
 
     return (
         <>
+        
+        {idState == 0 ?
+        <>
+        <Head>
+        <title>Loading...</title>
+        <meta name="description" content="Dorayaki factory"/>
+        </Head>
+        <div className="bg-blue-300 h-[100vh] flex flex-col items-center"></div></>
+        : idState==1 ?
+        <>
         <Head>
         <title>Detail {recipename}</title>
         <meta name="description" content="Dorayaki factory"/>
-        </Head>
-        
-        {idState == 0 ? 
-        <div className="bg-blue-300 h-[100vh] flex flex-col items-center"></div> 
-        : idState==1 ? 
+        </Head> 
         <div className="bg-blue-300 h-[100vh] flex flex-col items-center">
         <h1 className="text-6xl font-bold m-10">Recipe Detail</h1>
         <div className="w-full px-32">
@@ -70,8 +75,13 @@ const Detail: NextPage = ( ) => {
             ))}
         </ol>
         </div>
-        </div>
+        </div></>
         :
+        <>
+        <Head>
+        <title>No Recipe Found</title>
+        <meta name="description" content="Dorayaki factory"/>
+        </Head>
         <div className="bg-blue-300 h-[100vh] flex flex-col items-center justify-center">
         <div className="flex flex-col items-center">
             <div className ="mb-10">
@@ -86,7 +96,7 @@ const Detail: NextPage = ( ) => {
             </div>
         <h1 className="text-4xl font-bold">No recipe found :(</h1>
         </div>
-        </div>
+        </div></>
          }
         </>
     )
