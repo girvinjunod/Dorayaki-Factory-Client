@@ -26,7 +26,7 @@ const Detail: NextPage = ( ) => {
               }
         })
         if (id != undefined){
-            axios.get('http://localhost:4000/getDetails?id=' + id).then(res => {
+            axios.get('http://localhost:4000/getDetails/' + id).then(res => {
                 let data = res.data
                 let valid = data.auth
                 console.log(res.data)
@@ -87,14 +87,14 @@ const Detail: NextPage = ( ) => {
             <div className ="mb-10">
                 <Image 
                 priority
-                src="/images/error.png"
+                src="/images/no_recipe.png"
                 className="rounded"
                 height={300}
                 width={300}
                 alt="error"
                 />
             </div>
-        <h1 className="text-4xl font-bold">No recipe found :(</h1>
+        <h1 className="text-3xl font-bold">No recipe found :(</h1>
         </div>
         </div></>
          }
