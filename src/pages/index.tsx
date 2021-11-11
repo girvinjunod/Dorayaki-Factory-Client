@@ -1,35 +1,24 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import axios from 'axios';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import Navbar from '../components/navbar'
 
 const Home: NextPage = () => {
-  const router = useRouter()
-  useEffect( () => {
-    axios.get('http://localhost:4000/auth',{ withCredentials: true }).then(res => {
-          console.log(res.data);
-          if (res.data.auth){
-              console.log("auth")
-          }
-          else{
-              router.push('/login')
-          }
-  })
-  }, [router])
-
 
   return (
-    <div>
+    <>
       <Head>
         <title>Dashboard</title>
         <meta name="description" content="Dorayaki factory" />
       </Head>
-
-      <div className="font-bold rounded text-center">
-      Dashboard
+      <div className="flex flex-col h-[100vh]">
+        <Navbar />
+        <div className="bg-blue-300 flex flex-col items-center justify-center flex-auto">
+        <p>Dashboard</p>
+        
+        
+        </div>
       </div>
-      </div>
+    </>
   )
 }
 

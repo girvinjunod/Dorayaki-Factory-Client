@@ -5,26 +5,16 @@ import { useEffect } from 'react';
 import {useState} from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
+import Navbar from '../../components/navbar'
 
 const Detail: NextPage = ( ) => {
     const [idState, setIDState] = useState(0)
     const [recipename, setRecipeName] = useState("")
     const [recipedesc, setRecipeDesc] = useState("")
     const [recipematerial, setRecipeMaterial] = useState([])
-
     const router = useRouter()
     const { id } = router.query
     useEffect( () => {
-        axios.get('http://localhost:4000/auth',{ withCredentials: true }).then(res => {
-              console.log(res.data);
-              if (res.data.auth){
-                  console.log("auth")  
-              }
-              else{
-                  console.log("not logged in")
-                  router.push('/login')
-              }
-        })
         if (id != undefined){
             axios.get('http://localhost:4000/getDetails/' + id).then(res => {
                 let data = res.data
@@ -43,13 +33,15 @@ const Detail: NextPage = ( ) => {
             })
         }
 
-      }, [router, id])
+      }, [id])
 
     
 
     return (
         <>
-        
+        <div className="flex flex-col h-[100vh]">
+        <Navbar />
+        {/* Loading */}
         {idState == 0 ?
         <>
         <Head>
@@ -58,11 +50,14 @@ const Detail: NextPage = ( ) => {
         </Head>
         <div className="bg-blue-300 h-[100vh] flex flex-col items-center"></div></>
         : idState==1 ?
+        // Detail loaded
         <>
         <Head>
         <title>Detail {recipename}</title>
         <meta name="description" content="Dorayaki factory"/>
-        </Head> 
+        </Head>
+        
+
         <div className="bg-blue-300 h-[100vh] flex flex-col items-center">
         <h1 className="text-6xl font-bold m-10">Recipe Detail</h1>
         <div className="w-full px-32">
@@ -77,6 +72,7 @@ const Detail: NextPage = ( ) => {
         </div>
         </div></>
         :
+        // No recipe found
         <>
         <Head>
         <title>No Recipe Found</title>
@@ -98,6 +94,7 @@ const Detail: NextPage = ( ) => {
         </div>
         </div></>
          }
+         </div>
         </>
     )
 }

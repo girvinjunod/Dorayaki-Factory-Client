@@ -36,7 +36,7 @@ const Login: NextPage = () => {
         console.log(obj)
         await axios.post('http://localhost:4000/login', obj,{ withCredentials: true }).then(res => {
             if (res.data.auth){
-                console.log("ini login trus redirect")
+                console.log("login")
                 router.push('/')
             }
             else{

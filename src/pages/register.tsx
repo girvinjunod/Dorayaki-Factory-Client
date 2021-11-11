@@ -48,7 +48,7 @@ const Register: NextPage = () => {
                 console.log(res)
                 console.log(res.data);
                 if (res.data.auth){
-                    console.log("ini login trus redirect")
+                    console.log("login")
                     router.push('/')
                 }
                 else{
