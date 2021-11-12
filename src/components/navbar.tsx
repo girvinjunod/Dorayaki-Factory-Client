@@ -31,11 +31,37 @@ const Navbar = () => {
 
     return (
         <div className="bg-blue-900 text-white p-6 flex justify-around items-center w-full flex-initial">
-            <Link href="/" passHref><span className="font-bold text-xl cursor-pointer">PisangJerukAnjing</span></Link>
-            <p>Ini navbar</p>
-            <p>Username: {username}</p>
-            <button onClick={logout} className="cursor-pointer p-3 bg-blue-200 text-blue-900 rounded-lg px-10 
-             hover:bg-blue-700 hover:text-white duration-200">Logout</button>
+            <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+              <div className="flex items-center flex-shrink-0 text-white mr-6">
+                <svg className="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
+                <Link href="/" passHref><span className="font-bold text-xl cursor-pointer">PisangJerukAnjing</span></Link>
+              </div>
+              <div>
+                <div className="block lg:hidden">
+                  <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+                    <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+                  </button>
+                </div>
+                <div className="w-full block flex-grow lg:flex lg:items-end lg:w-auto md:hidden sm:hidden">
+                  <div className="text-sm lg:flex-grow">
+                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                      Daftar Request
+                    </a>
+                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                      Manajemen Resep
+                    </a>
+                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                      Manajemen Bahan Baku
+                    </a>
+                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                      Username: {username}
+                    </a>
+                    <button onClick={logout} className="cursor-pointer p-3 bg-blue-200 text-blue-900 rounded-lg px-10 
+                        hover:bg-blue-700 hover:text-white duration-200">Logout</button>     
+                  </div>
+                </div>
+              </div>
+            </nav>      
         </div>
     )
 }
