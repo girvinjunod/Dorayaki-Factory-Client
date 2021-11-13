@@ -13,15 +13,13 @@ const Home: NextPage = () => {
       </Head>
       <div className="flex flex-col lg:h-[100vh] bg-blue-300">
         <Navbar />
-        <div className=" flex flex-col">
-          <p className="flex justify-center m-6">Dashboard</p>
+        <div className="flex flex-col content-center mt-4">
           <div className="flex-grow flex m-auto items-stretch flex-col lg:flex-row lg:justify-around">
-            <Card className="" name="Daftar Request" />
-            <Card className="" name="Manajemen Resep" />
-            <Card className="" name="Manajemen Bahan Baku" />
+            <Card link="#" img="/images/request.svg" name="DAFTAR REQUEST" />
+            <Card link="#" img="/images/resep.svg" name="MANAJEMEN RESEP" />
+            <Card link="#" img="/images/bahan_baku.svg" name="MANAJEMEN BAHAN BAKU" />
           </div>
         </div>
-        
       </div>
     </>
   )
