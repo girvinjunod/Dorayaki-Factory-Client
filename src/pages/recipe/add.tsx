@@ -20,7 +20,7 @@ const RecipeAdd: NextPage = () => {
   }, [router])
     const onsubmit = async (e) => {
       e.preventDefault()
-      let obj = {namaRecipe: namaRecipe, deskripsiRecipe: deskripsiRecipe, dataRecipe:}
+      let obj = {namaRecipe: namaRecipe, deskripsiRecipe: deskripsiRecipe, dataRecipe:listMaterialInput}
       await axios.post('http://localhost:4000/addRecipe',obj).then(res => {
         if (res.data.err){
           seterror('Failed to add Recipe, please try again in a few minutes')
