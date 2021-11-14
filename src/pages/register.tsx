@@ -142,7 +142,7 @@ const Register: NextPage = () => {
                     {errConf ? <label htmlFor="confirmpassword" className="text-red-600">Those passwords didn&apos;t match, try again.</label> : ""}
                     {error ? <p className="text-red-600 font-bold">Register failed, please fill the fields correctly.</p>: ""}
                     <p className="text-white">Already have an account? <Link href="/login" passHref><span className="text-yellow-400 cursor-pointer">Login here.</span></Link></p>
-                    <button className='mt-6 mb-4 bg-blue-400 text-white rounded-lg py-2 px-8 ml-auto hover:bg-blue-600 duration-200' onClick={onSubmit}>Login</button>
+                    <button className='mt-6 mb-4 bg-blue-400 text-white rounded-lg py-2 px-8 ml-auto hover:bg-blue-600 duration-200' onClick={onSubmit}>Register</button>
                 </form>
             </div>
         </div>
