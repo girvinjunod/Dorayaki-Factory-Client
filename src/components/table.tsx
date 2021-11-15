@@ -3,32 +3,52 @@ import Image from 'next/image'
 
 function Table(props) {
     return (
-        <table className="table-auto">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Author</th>
-              <th>Views</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Intro to CSS</td>
-              <td>Adam</td>
-              <td>858</td>
-            </tr>
-            <tr className="bg-emerald-200">
-              <td>A Long and Winding Tour of the History of UI Frameworks and Tools and the Impact on Design</td>
-              <td>Adam</td>
-              <td>112</td>
-            </tr>
-            <tr>
-              <td>Intro to JavaScript</td>
-              <td>Chris</td>
-              <td>1,280</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="w-full xl:w-1/2 mb-12 xl:mb-0 px-4 mx-auto mt-20">
+          <div className="relative flex flex-col bg-white w-full mb-6 shadow-lg rounded">
+            <div className="block w-full overflow-x-auto">
+              <table className="items-center bg-transparent w-full border-collapse">
+                <thead>
+                  <tr>
+                    <th className="px-6 border py-3 text-xs border-l-0 border-r-0 text-left">
+                      #
+                    </th>
+                    <th className="px-6 border py-3 text-xs border-l-0 border-r-0 text-left">
+                      NAME
+                    </th>
+                    <th className="px-6 border py-3 text-xs border-l-0 border-r-0 text-left">
+                      ACTION
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  
+                    {props.data.map(function(name, index){
+                      return (
+                        <tr>
+                          <td className="border-t-0 px-6 border-l-0 border-r-0 text-xs p-4">
+                            {index + 1}
+                          </td>
+                          <td className="border-t-0 px-6 border-l-0 border-r-0 text-xs p-4">
+                            {name}
+                          </td>
+                          <td className="border-t-0 px-6 border-l-0 border-r-0 text-xs p-4">
+                            <a href="#" className="bg-red-500 hover:bg-red-700 text-white text-center py-2 px-4 rounded mr-3">
+                              DELETE
+                            </a>
+                            <a href="#" className="bg-blue-500 hover:bg-blue-700 text-white text-center py-2 px-4 rounded mr-3">
+                              EDIT
+                            </a> 
+                          </td>
+                        </tr>
+                      );
+                    })}
+                    
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
     );
 }
 
