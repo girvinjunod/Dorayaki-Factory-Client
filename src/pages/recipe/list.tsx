@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import { useEffect,useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import Link from 'next/link'
 
 const Recipe: NextPage = () => {
   const router = useRouter()
@@ -25,7 +26,11 @@ const Recipe: NextPage = () => {
           <span className=" font-bold text-4xl mt-10 font-title">Recipe List</span>
           <div className="flex flex-row justify-between w-full px-[16rem] items-center mt-5">
           <span className="text-2xl text-left font-title my-auto">Terdapat {listRecipe.length} Resep</span>
-          <button className="bg-blue_button rounded-lg text-white text-lg px-2 h-12">Add Recipe</button>
+          <Link  href="/recipe/add">
+            <a>
+              <button className="bg-blue_button rounded-lg text-white text-lg px-2 h-12">Add Recipe</button>
+            </a>
+          </Link>
           </div>
           <table className="mt-10 text-lg font-text">
           <tr className="border-2 border-dongker">
@@ -38,11 +43,13 @@ const Recipe: NextPage = () => {
             <td className="text-center border-2 border-dongker">{item.id_recipe}</td>
             <td className="px-4 text-left border-2 border-dongker break-words">{item.recipe_name}</td>
             <td className="text-center border-2 border-dongker">
-              <a href={"editRecipe/"+item.id_recipe}>
-                <button className="bg-blue_button text-white p-2 px-4 my-1 rounded-lg">
-                  Edit
-                </button>
-              </a>
+              <Link href={"/details-recipe/"+item.id_recipe}>
+                <a >
+                  <button className="bg-blue_button text-white p-2 px-4 my-1 rounded-lg">
+                    Details
+                  </button>
+                </a>
+              </Link>
               </td>
           </tr>
           ))}         
