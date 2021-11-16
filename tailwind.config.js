@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        dongker : '#03045E',
+        dongker : '#1e3a8a',
         blue_button: '#0077B6',
         mid_blue : '#00B4D8',
         mid_light_blue: '#90e0ef',

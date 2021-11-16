@@ -22,8 +22,18 @@ const RecipeAdd: NextPage = () => {
       e.preventDefault()
       // Ambil Copy dan ubah menjadi list of object dari nama material menjadi id Material
       let items = [...listMaterialInput];
+      console.log(listMaterialInput)
+      console.log(items)
       for (let i=0; i< items.length; i++){
-        items[i].materialName = findMaterialId(listMaterialInput[i].materialName) // Change from nama to Id
+        let item = {...items[i]};
+        item.materialName = findMaterialId(listMaterialInput[i].materialName) // Change from nama to Id
+        items[i] = item;
+        // items[i].materialName = findMaterialId(listMaterialInput[i].materialName) // Change from nama to Id
+        if (item.countMaterial <= 0){
+          seterror('Please Input the right amount (ingredient > 0)')
+          console.log(listMaterialInput)
+          return
+        }
       }
       console.log(items)
       let obj = {namaRecipe: namaRecipe, deskripsiRecipe: deskripsiRecipe, dataRecipe:items}
@@ -40,7 +50,7 @@ const RecipeAdd: NextPage = () => {
     }
     const pushNewItem = () => {
       setlistMaterialInput([...listMaterialInput,{materialName:'', countMaterial:0}])
-      console.log(listMaterialInput)
+      // console.log(listMaterialInput)
     }
     const changeMaterialName = (index,name) => {
       let items = [...listMaterialInput];
@@ -48,8 +58,8 @@ const RecipeAdd: NextPage = () => {
       item.materialName = name;
       items[index] = item;
       setlistMaterialInput(items);  
-      console.log(index)  
-      console.log(listMaterialInput)  
+      // console.log(index)  
+      // console.log(listMaterialInput)  
     }
     const changeMaterialCount = (index,count) => {
       let items = [...listMaterialInput];
@@ -57,8 +67,8 @@ const RecipeAdd: NextPage = () => {
       item.countMaterial = count;
       items[index] = item;
       setlistMaterialInput(items);  
-      console.log(index)  
-      console.log(listMaterialInput)            
+      // console.log(index)  
+      // console.log(listMaterialInput)            
     }
     const deleteIndex = (i) => {
       if (listMaterialInput.length > 1){
@@ -77,9 +87,9 @@ const RecipeAdd: NextPage = () => {
     }
     const findMaterialId = (namaMaterial) => {
       for (let j =0; j< listMaterial.length; j++){
-        console.log(namaMaterial)
-        console.log(listMaterial[j].material_name)
-        console.log(listMaterial[j])
+        // console.log(namaMaterial)
+        // console.log(listMaterial[j].material_name)
+        // console.log(listMaterial[j])
         if (namaMaterial == listMaterial[j].material_name){
           return listMaterial[j].id_material
         }
@@ -96,7 +106,7 @@ const RecipeAdd: NextPage = () => {
           <div className="flex flex-col w-100 h-[36rem] overflow-auto bg-dongker text-white py-6 px-8 rounded-xl">
             <span className="mx-auto font-title text-4xl mb-10">Add New Recipe</span>
             <input type="text" placeholder="Recipe Name" value={namaRecipe} onChange ={(e) => setnamaRecipe(e.target.value)} className=" px-2 py-1 rounded-md my-2 text-black" />
-            <textarea placeholder="Recipe Description" value={deskripsiRecipe} onChange ={(e) => setdeskripsiRecipe(e.target.value)} className=" px-2 py-1 rounded-md my-2 text-black" />
+            <textarea placeholder="Recipe Description" value={deskripsiRecipe} onChange ={(e) => setdeskripsiRecipe(e.target.value)} className=" min-h-[10rem] px-2 py-1 rounded-md my-2 text-black" />
              {listMaterialInput.map((e, i) => 
             <div key={i} className="flex flex-row text-black">
               <select className="w-[100%]  px-2 py-1 rounded-md my-2" placeholder="Material Name" value={listMaterialInput[i].materialName} onChange={(f) => changeMaterialName(i,f.target.value)}> 

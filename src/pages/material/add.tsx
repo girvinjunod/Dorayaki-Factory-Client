@@ -10,6 +10,10 @@ const MaterialAdd: NextPage = () => {
   const [stokMaterial, setstokMaterial] = useState('');
     const onsubmit = async (e) => {
       e.preventDefault()
+      if (+stokMaterial <= 0){
+        seterror('Please Input the right amount (stok > 0)')
+        return
+      }
       let obj = {namaMaterial: namaMaterial, stokMaterial: stokMaterial}
       await axios.post('http://localhost:4000/addMaterial',obj).then(res => {
         if (res.data.err){
@@ -18,7 +22,6 @@ const MaterialAdd: NextPage = () => {
           setnamaMaterial('')
           setstokMaterial('')
           seterror('Success adding new material')
-
         }
       })
     }
