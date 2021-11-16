@@ -2,20 +2,12 @@ import Head from 'next/head'
 import type { NextPage } from 'next'
 import { useEffect,useState } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/router';
 
 const MaterialAdd: NextPage = () => {
   // const router = useRouter()
   const [namaMaterial, setnamaMaterial] = useState('');
   const [error, seterror] = useState('');
-  const [stokMaterial, setstokMaterial] = useState(1);
-  // useEffect ( () => {
-  //   axios.get('http://localhost:4000/getAllMaterial').then(res => {
-  //     console.log(res)
-  //     setlistMaterial(res.data.part)
-  //     console.log(listMaterial)
-  //   })
-  // }, [router])
+  const [stokMaterial, setstokMaterial] = useState('');
     const onsubmit = async (e) => {
       e.preventDefault()
       let obj = {namaMaterial: namaMaterial, stokMaterial: stokMaterial}
@@ -23,7 +15,10 @@ const MaterialAdd: NextPage = () => {
         if (res.data.err){
           seterror('Failed to add material, please try again in a few minutes')
         }else {
+          setnamaMaterial('')
+          setstokMaterial('')
           seterror('Success adding new material')
+
         }
       })
     }

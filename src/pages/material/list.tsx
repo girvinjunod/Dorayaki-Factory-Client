@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import { useEffect,useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import Link from 'next/link'
 
 const Material: NextPage = () => {
   const router = useRouter()
@@ -25,7 +26,12 @@ const Material: NextPage = () => {
           <span className=" font-bold text-4xl mt-10 font-title">Material List</span>
           <div className="flex flex-row justify-between w-full px-[16rem] items-center mt-5">
           <span className="text-2xl text-left font-title my-auto">Terdapat {listMaterial.length} Material</span>
-          <button className="bg-blue_button rounded-lg text-white text-lg px-2 h-12">Add Material</button>
+          <Link href="/material/add">
+            <a>
+              <button className="bg-blue_button rounded-lg text-white text-lg px-2 h-12">Add Material</button>
+            </a>
+          </Link>
+
           </div>
           <table className="mt-10 text-lg font-text">
           <tr className="border-2 border-dongker">
@@ -40,7 +46,7 @@ const Material: NextPage = () => {
             <td className="px-4 text-left border-2 border-dongker break-words">{item.material_name}</td>
             <td className="px-4 text-left border-2 border-dongker break-words">{item.material_stock}</td>
             <td className="text-center border-2 border-dongker">
-              <a href={"editMaterial/"+item.id_material}>
+              <a  href={"editMaterial/"+item.id_material}> {/* TODO: Ganti ke Edit Material */}
                 <button className="bg-blue_button text-white p-2 px-4 my-1 rounded-lg">
                   Edit
                 </button>
