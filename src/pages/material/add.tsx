@@ -11,6 +11,10 @@ const MaterialAdd: NextPage = () => {
   const [stokMaterial, setstokMaterial] = useState('');
     const onsubmit = async (e) => {
       e.preventDefault()
+      if (namaMaterial == ''){
+        seterror('Please Input the material name')
+        return
+      }
       if (+stokMaterial <= 0){
         seterror('Please Input the right amount (stok > 0)')
         return

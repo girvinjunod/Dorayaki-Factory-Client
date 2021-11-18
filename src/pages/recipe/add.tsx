@@ -22,6 +22,14 @@ const RecipeAdd: NextPage = () => {
     const onsubmit = async (e) => {
       e.preventDefault()
       // Ambil Copy dan ubah menjadi list of object dari nama material menjadi id Material
+      if (namaRecipe == ''){ // check empty recipe name
+        seterror('Please Input the recipe name')
+        return
+      }
+      if (deskripsiRecipe == ''){ // check empty recipe desc
+        seterror('Please Input the recipe description')
+        return
+      }
       let items = [...listMaterialInput];
       console.log(listMaterialInput)
       console.log(items)
@@ -30,9 +38,12 @@ const RecipeAdd: NextPage = () => {
         item.materialName = findMaterialId(listMaterialInput[i].materialName) // Change from nama to Id
         items[i] = item;
         // items[i].materialName = findMaterialId(listMaterialInput[i].materialName) // Change from nama to Id
-        if (item.countMaterial <= 0){
+        if (+item.materialName == -1){ // Item not selected
+          seterror('Please Input the right Material')
+          return
+        }
+        if (item.countMaterial <= 0){ // jumlah 0
           seterror('Please Input the right amount (ingredient > 0)')
-          console.log(listMaterialInput)
           return
         }
       }
@@ -95,6 +106,7 @@ const RecipeAdd: NextPage = () => {
           return listMaterial[j].id_material
         }
       }
+      return -1;
     }
   return(
     <>
@@ -108,7 +120,7 @@ const RecipeAdd: NextPage = () => {
           <div className="flex flex-col w-100 h-[36rem] overflow-auto bg-dongker text-white py-6 px-8 rounded-xl">
             <span className="mx-auto font-title text-4xl mb-10">Add New Recipe</span>
             <input type="text" placeholder="Recipe Name" value={namaRecipe} onChange ={(e) => setnamaRecipe(e.target.value)} className=" px-2 py-1 rounded-md my-2 text-black" />
-            <textarea placeholder="Recipe Description" value={deskripsiRecipe} onChange ={(e) => setdeskripsiRecipe(e.target.value)} className=" min-h-[10rem] px-2 py-1 rounded-md my-2 text-black" />
+            <textarea placeholder="Recipe Description" value={deskripsiRecipe} onChange ={(e) => setdeskripsiRecipe(e.target.value)} className="min-h-[12rem] px-2 py-1 rounded-md my-2 text-black"  />
              {listMaterialInput.map((e, i) => 
             <div key={i} className="flex flex-row text-black">
               <select className="w-[100%]  px-2 py-1 rounded-md my-2" placeholder="Material Name" value={listMaterialInput[i].materialName} onChange={(f) => changeMaterialName(i,f.target.value)}> 
