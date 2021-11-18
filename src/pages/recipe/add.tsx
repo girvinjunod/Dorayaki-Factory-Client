@@ -12,7 +12,7 @@ const RecipeAdd: NextPage = () => {
   const [error, seterror] = useState('');
   const [deskripsiRecipe, setdeskripsiRecipe] = useState('');
   const [listMaterial, setlistMaterial] = useState([]);
-  const [listMaterialInput, setlistMaterialInput] = useState([{materialName:'', countMaterial:0}])
+  const [listMaterialInput, setlistMaterialInput] = useState([{materialName:'', countMaterial:1}])
 
   useEffect ( () => {
     axios.get('http://localhost:4000/getAllMaterial').then(res => {
@@ -21,7 +21,6 @@ const RecipeAdd: NextPage = () => {
   }, [router])
     const onsubmit = async (e) => {
       e.preventDefault()
-      // Ambil Copy dan ubah menjadi list of object dari nama material menjadi id Material
       if (namaRecipe == ''){ // check empty recipe name
         seterror('Please Input the recipe name')
         return
@@ -30,6 +29,7 @@ const RecipeAdd: NextPage = () => {
         seterror('Please Input the recipe description')
         return
       }
+      // Ambil Copy dan ubah menjadi list of object dari nama material menjadi id Material
       let items = [...listMaterialInput];
       console.log(listMaterialInput)
       console.log(items)
@@ -56,12 +56,12 @@ const RecipeAdd: NextPage = () => {
           seterror('Success adding new Recipe')
           setnamaRecipe('')
           setdeskripsiRecipe('')
-          setlistMaterialInput([{materialName:'', countMaterial:0}])
+          setlistMaterialInput([{materialName:'', countMaterial:1}])
         }
       })
     }
     const pushNewItem = () => {
-      setlistMaterialInput([...listMaterialInput,{materialName:'', countMaterial:0}])
+      setlistMaterialInput([...listMaterialInput,{materialName:'', countMaterial:1}])
       // console.log(listMaterialInput)
     }
     const changeMaterialName = (index,name) => {
@@ -114,13 +114,13 @@ const RecipeAdd: NextPage = () => {
       <title>Add New Recipe</title>
       <meta name="description" content="Dorayaki factory"/>
       </Head>
-      <div className="flex flex-col h-[100vh]">
+      <div className="flex flex-col min-h-[100vh] ">
       <Navbar />
-        <div className="flex bg-blue-300 h-[100vh] w-[100vw] bg-default bg-cover items-center text-center justify-center flex-auto">
-          <div className="flex flex-col w-100 h-[36rem] overflow-auto bg-dongker text-white py-6 px-8 rounded-xl">
+        <div className="flex bg-blue-300 min-h-[100vh] bg-default bg-cover bg-center items-center text-center justify-center flex-auto">
+          <div className="flex flex-col w-100 my-[5%] bg-dongker text-white py-6 px-8 rounded-xl">
             <span className="mx-auto font-title text-4xl mb-10">Add New Recipe</span>
             <input type="text" placeholder="Recipe Name" value={namaRecipe} onChange ={(e) => setnamaRecipe(e.target.value)} className=" px-2 py-1 rounded-md my-2 text-black" />
-            <textarea placeholder="Recipe Description" value={deskripsiRecipe} onChange ={(e) => setdeskripsiRecipe(e.target.value)} className="min-h-[12rem] px-2 py-1 rounded-md my-2 text-black"  />
+            <textarea placeholder="Recipe Description" value={deskripsiRecipe} onChange ={(e) => setdeskripsiRecipe(e.target.value)} className=" h-48 px-2 py-1 rounded-md my-2 text-black"  />
              {listMaterialInput.map((e, i) => 
             <div key={i} className="flex flex-row text-black">
               <select className="w-[100%]  px-2 py-1 rounded-md my-2" placeholder="Material Name" value={listMaterialInput[i].materialName} onChange={(f) => changeMaterialName(i,f.target.value)}> 
@@ -133,7 +133,7 @@ const RecipeAdd: NextPage = () => {
                   }     
                 })}
               </select>
-              <input onChange={(f) => changeMaterialCount(i,+f.target.value)} className="w-[40%] mx-3  px-2 py-1 rounded-md my-2" type="number" placeholder="0" value={listMaterialInput[i].countMaterial} />
+              <input onChange={(f) => changeMaterialCount(i,+f.target.value)} min={1} className="w-[40%] mx-3  px-2 py-1 rounded-md my-2" type="number" placeholder="1" value={listMaterialInput[i].countMaterial} />
               <button onClick={(f) => deleteIndex(i)} className="w-12 bg-close bg-contain px-2 py-1 rounded-md my-2"></button>
             </div>
             )}
