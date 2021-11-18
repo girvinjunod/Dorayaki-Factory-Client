@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import type { NextPage } from 'next'
-import { useEffect,useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import Navbar from '../../components/navbar'
 
 const MaterialAdd: NextPage = () => {
   // const router = useRouter()
@@ -31,8 +32,9 @@ const MaterialAdd: NextPage = () => {
       <title>Add New Material</title>
       <meta name="description" content="Dorayaki factory"/>
       </Head>
-      <div className="min-h-[100vh] bg-mid_light_blue">
-        <div className="flex h-[100vh] w-[100vw] bg-default bg-cover items-center text-center justify-center">
+      <div className="flex flex-col h-[100vh]">
+      <Navbar />
+        <div className="flex h-[100vh] w-[100vw] bg-blue-300 flex-auto bg-default bg-cover items-center text-center justify-center">
           <div className="flex flex-col w-96 h-[fit-content] bg-dongker text-white py-6 px-8 rounded-xl">
             <span className="mx-auto font-title text-4xl mb-10">Add New Material</span>
             <input type="text" placeholder="Nama Bahan Baku" value={namaMaterial} onChange ={(e) => setnamaMaterial(e.target.value)} className=" px-2 py-1 rounded-md my-2 text-black" />

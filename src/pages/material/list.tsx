@@ -4,6 +4,7 @@ import { useEffect,useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import Link from 'next/link'
+import Navbar from '../../components/navbar'
 
 const Material: NextPage = () => {
   const router = useRouter()
@@ -22,7 +23,9 @@ const Material: NextPage = () => {
         <title>Material List</title>
         <meta name="description" content="Dorayaki factory"/>
         </Head>
-        <div className="flex flex-col items-center min-h-[100vh] bg-mid_light_blue">
+        <div className="flex flex-col h-[100vh]">
+        <Navbar />
+        <div className="flex flex-col items-center h-[100vh] bg-blue-300 flex-auto">
           <span className=" font-bold text-4xl mt-10 font-title">Material List</span>
           <div className="flex flex-row justify-between w-full px-[16rem] items-center mt-5">
           <span className="text-2xl text-left font-title my-auto">Terdapat {listMaterial.length} Material</span>
@@ -57,7 +60,7 @@ const Material: NextPage = () => {
 
           </table>
         </div>
-
+        </div>
     </>
   );
 }

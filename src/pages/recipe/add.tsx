@@ -4,6 +4,7 @@ import { useEffect,useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import Image from 'next/image'
+import Navbar from '../../components/navbar'
 
 const RecipeAdd: NextPage = () => {
   const router = useRouter()
@@ -39,7 +40,7 @@ const RecipeAdd: NextPage = () => {
       let obj = {namaRecipe: namaRecipe, deskripsiRecipe: deskripsiRecipe, dataRecipe:items}
       await axios.post('http://localhost:4000/addRecipe',obj).then(res => {
         if (res.data.err){
-          seterror('Failed to add Recipe, please try again in a few minutes')
+          seterror('Failed to add Recipe, please make sure your input is correct')
         }else {
           seterror('Success adding new Recipe')
           setnamaRecipe('')
@@ -101,8 +102,9 @@ const RecipeAdd: NextPage = () => {
       <title>Add New Recipe</title>
       <meta name="description" content="Dorayaki factory"/>
       </Head>
-      <div className="min-h-[100vh] bg-mid_light_blue">
-        <div className="flex h-[100vh] w-[100vw] bg-default bg-cover items-center text-center justify-center">
+      <div className="flex flex-col h-[100vh]">
+      <Navbar />
+        <div className="flex bg-blue-300 h-[100vh] w-[100vw] bg-default bg-cover items-center text-center justify-center flex-auto">
           <div className="flex flex-col w-100 h-[36rem] overflow-auto bg-dongker text-white py-6 px-8 rounded-xl">
             <span className="mx-auto font-title text-4xl mb-10">Add New Recipe</span>
             <input type="text" placeholder="Recipe Name" value={namaRecipe} onChange ={(e) => setnamaRecipe(e.target.value)} className=" px-2 py-1 rounded-md my-2 text-black" />
