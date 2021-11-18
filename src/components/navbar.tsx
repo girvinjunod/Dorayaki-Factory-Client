@@ -46,15 +46,9 @@ const Navbar = () => {
               <div>
                 <div className="w-full block flex-grow lg:flex lg:items-end lg:w-auto lg:justify-end">
                   <div className="text-sm flex flex-col items-end justify-end lg:flex-grow lg:flex-row lg:items-center">
-                    <a href="#responsive-header" className="block mt-4 lg:mr-3 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-                      Daftar Request
-                    </a>
-                    <a href="#responsive-header" className="block mt-4 lg:mr-3 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-                      Manajemen Resep
-                    </a>
-                    <a href="#responsive-header" className="block mt-4 lg:mr-3 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-                      Manajemen Bahan Baku
-                    </a>
+                    <Link href="/request"><span className="block mt-4 lg:mr-3 lg:inline-block lg:mt-0 text-teal-200 hover:text-white cursor-pointer">Request List</span></Link>
+                    <Link href="/recipe/list"><span className="block mt-4 lg:mr-3 lg:inline-block lg:mt-0 text-teal-200 hover:text-white cursor-pointer">Recipe Management</span></Link>
+                    <Link href="/material/list"><span className="block mt-4 lg:mr-3 lg:inline-block lg:mt-0 text-teal-200 hover:text-white cursor-pointer">Ingredient Management</span></Link>
                     <a href="#responsive-header" className="block mt-4 lg:mr-3 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mb-4 lg:mb-0">
                       Username: {username}
                     </a>
