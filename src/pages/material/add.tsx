@@ -42,7 +42,7 @@ const MaterialAdd: NextPage = () => {
           <div className="flex flex-col w-96 h-[fit-content] bg-dongker text-white py-6 px-8 rounded-xl">
             <span className="mx-auto font-title text-4xl mb-10">Add New Material</span>
             <input type="text" placeholder="Nama Bahan Baku" value={namaMaterial} onChange ={(e) => setnamaMaterial(e.target.value)} className=" px-2 py-1 rounded-md my-2 text-black" />
-            <input type="number" placeholder="Stok Bahan Baku" value={stokMaterial} onChange ={(e) => setstokMaterial(e.target.value)} className=" px-2 py-1 rounded-md my-2 text-black" />
+            <input min={1} type="number" placeholder="Stok Bahan Baku" value={stokMaterial} onChange ={(e) => setstokMaterial(e.target.value)} className=" px-2 py-1 rounded-md my-2 text-black" />
             <span className="mx-auto font-title text-md mb-5 text-light_blue">{error}</span>
             <button onClick={onsubmit} className="ml-auto my-2 bg-blue_button hover:bg-blue-600 duration-200 rounded-lg text-white text-lg px-2 h-10 w-32 right-0">Add Material</button>
           </div>
