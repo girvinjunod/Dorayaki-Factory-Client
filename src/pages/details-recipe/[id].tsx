@@ -48,7 +48,7 @@ const Detail: NextPage = ( ) => {
         <title>Loading...</title>
         <meta name="description" content="Dorayaki factory"/>
         </Head>
-        <div className="bg-blue-300 h-[100vh] flex flex-col items-center"></div></>
+        <div className="bg-blue-300 h-[100vh] flex flex-col items-center flex-auto"></div></>
         : idState==1 ?
         // Detail loaded
         <>
@@ -58,7 +58,7 @@ const Detail: NextPage = ( ) => {
         </Head>
         
 
-        <div className="bg-blue-300 h-[100vh] flex flex-col items-center">
+        <div className="bg-blue-300 h-[100vh] flex flex-col items-center flex-auto">
         <h1 className="text-6xl font-bold m-10">Recipe Detail</h1>
         <div className="w-full px-32">
         <h2 className="text-4xl font-bold mb-8">{recipename} Recipe</h2>
@@ -78,7 +78,7 @@ const Detail: NextPage = ( ) => {
         <title>No Recipe Found</title>
         <meta name="description" content="Dorayaki factory"/>
         </Head>
-        <div className="bg-blue-300 h-[100vh] flex flex-col items-center justify-center">
+        <div className="bg-blue-300 h-[100vh] flex flex-col items-center justify-center flex-auto">
         <div className="flex flex-col items-center">
             <div className ="mb-10">
                 <Image 
