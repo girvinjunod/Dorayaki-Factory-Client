@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Navbar from '../components/navbar'
+import Card from '../components/card'
 
 const Home: NextPage = () => {
 
@@ -10,12 +11,14 @@ const Home: NextPage = () => {
         <title>Dashboard</title>
         <meta name="description" content="Dorayaki factory" />
       </Head>
-      <div className="flex flex-col h-[100vh]">
+      <div className="flex flex-col lg:h-[100vh] bg-blue-300">
         <Navbar />
-        <div className="bg-blue-300 flex flex-col items-center justify-center flex-auto">
-        <p>Dashboard</p>
-        
-        
+        <div className="flex flex-col content-center mt-4">
+          <div className="flex-grow flex m-auto items-stretch flex-col lg:flex-row lg:justify-around">
+            <Card link="/daftar-request" img="/images/request.svg" name="DAFTAR REQUEST" />
+            <Card link="/manajemen-resep" img="/images/resep.svg" name="MANAJEMEN RESEP" />
+            <Card link="/manajemen-bahan" img="/images/bahan_baku.svg" name="MANAJEMEN BAHAN BAKU" />
+          </div>
         </div>
       </div>
     </>
