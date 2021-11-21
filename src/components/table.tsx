@@ -25,7 +25,7 @@ function Table(props) {
                   
                     {props.data.map(function(name, index){
                       return (
-                        <tr>
+                        <tr key={index}>
                           <td className="border-t-0 px-6 border-l-0 border-r-0 text-xs p-4">
                             {index + 1}
                           </td>
