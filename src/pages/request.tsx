@@ -11,12 +11,11 @@ const Daftar: NextPage = () => {
         <meta name="description" content="Dorayaki factory" />
       </Head>
       <div className="flex flex-col lg:h-[100vh] bg-blue-300">
-        <Navbar />
+        <Navbar />      
         <div className="flex flex-col content-center mt-4">
-          <h1 className="text-center text-xl font-bold"> DAFTAR REQUEST </h1>
-          <h3 className="text-center text-md">
-            Terdapat xx Request
-          </h3>
+          <span className="font-bold text-center text-4xl mt-10 font-title">Daftar Request</span>
+          <span className="px-[16rem] text-2xl text-left font-title my-auto">Terdapat xx Request</span>
+
           <Table data={['aaaa', 'bbbb', 'ccc']} />
         </div>
       </div>
