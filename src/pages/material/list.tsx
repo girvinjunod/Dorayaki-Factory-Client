@@ -31,7 +31,7 @@ const Material: NextPage = () => {
           <span className="text-2xl text-left font-title my-auto">Terdapat {listMaterial.length} Material</span>
           <Link href="/material/add">
             <a>
-              <button className="mr-1 bg-blue_button rounded-lg text-white text-lg px-2 h-12">Add Material</button>
+              <button className="bg-blue_button rounded-lg text-white text-lg px-2 h-12">Add Material</button>
             </a>
           </Link>
 
@@ -49,7 +49,7 @@ const Material: NextPage = () => {
             <td className="px-4 text-left border-2 border-dongker break-words">{item.material_name}</td>
             <td className="px-4 text-left border-2 border-dongker break-words">{item.material_stock}</td>
             <td className="text-center border-2 border-dongker">
-              <a  href={"/material/edit/"+item.id_material}> {/* TODO: Ganti ke Edit Material */}
+              <a  href={"/material/edit/"+item.id_material}>
                 <button className="bg-blue_button text-white p-2 px-4 my-1 rounded-lg">
                   Edit
                 </button>
