@@ -145,7 +145,6 @@ const RecipeAdd: NextPage = () => {
             <button onClick={onsubmit} className="ml-auto my-2 bg-blue_button hover:bg-blue-600 duration-200 rounded-lg text-white text-lg px-2 h-10 w-32 right-0">Add Recipe</button>
           </div>
         </div>
-
       </div>
     </>
   )
