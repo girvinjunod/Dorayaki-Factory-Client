@@ -45,7 +45,7 @@ const MaterialEdit: NextPage = () => {
       seterror('Please Input the right amount (stok >= 0)')
       return
     }
-    let obj = {namaMaterial: namaMaterial, stokMaterial: stokMaterial}
+    let obj = {namaMaterial: namaMaterial, stokMaterial: stokMaterial, stokId : id}
     await axios.post('http://localhost:4000/editMaterial',obj).then(res => {
       if (res.data.err){
         seterror('Failed to edit material, please try again in a few minutes')

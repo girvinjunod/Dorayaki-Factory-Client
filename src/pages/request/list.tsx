@@ -11,6 +11,25 @@ const Request: NextPage = () => {
   const router = useRouter()
   const [listRequest, setlistRequest] = useState([]);
   const [error, seterror] = useState('');
+  const [requestAccepted, setrequestAccepted] = useState('');
+  const [requestDeclined, setrequestDeclined] = useState('');
+  
+
+  function requestAccept(id) {
+    console.log("request accepted")
+    axios.post('http://localhost:4000/acceptRequest/'+id).then(res => {
+      console.log("request id set")
+      setrequestAccepted(id)
+    })
+  }
+
+  function requestDecline(id) {
+    console.log("request declined")
+    axios.post('http://localhost:4000/declineRequest/'+id).then(res => {
+      console.log("request id set")
+      setrequestDeclined(id)
+    })
+  }
 
   useEffect ( () => {
     axios.get('http://localhost:4000/getAllRequest').then(res => {
@@ -18,7 +37,8 @@ const Request: NextPage = () => {
       setlistRequest(res.data.part)
       console.log(listRequest)
     })
-  }, [router])
+
+  }, [router, requestAccepted, requestDeclined])
   
   return(
     <>
@@ -32,21 +52,12 @@ const Request: NextPage = () => {
           <span className=" font-bold text-4xl mt-10 font-title">Request List</span>
           <div className="flex flex-row justify-between w-full px-[16rem] items-center mt-5">
           <span className="text-2xl text-left font-title my-auto">Terdapat {listRequest.length} Material</span>
-          <Link href="/request/add">
-            <a>
-              <button className="bg-blue_button rounded-lg text-white text-lg px-2 h-12">Add Request</button>
-            </a>
-          </Link>
-
           </div>
           <table className="mt-10 text-lg font-text">
           <tr className="border-2 border-dongker">
             <th className="px-8 py-3 border-2 border-dongker">ID</th>
             <th className="w-[30rem] px-8 py-3 border-2 border-dongker">Recipe Name</th>
             <th className=" px-8 py-3 border-2 border-dongker">Count Request</th>
-            <th className=" px-8 py-3 border-2 border-dongker">Material Name</th>
-            <th className=" px-8 py-3 border-2 border-dongker">Material Needed</th>
-            <th className=" px-8 py-3 border-2 border-dongker">Material Available</th>
             <th className=" px-8 py-3 border-2 border-dongker">IP Store</th>
             <th className=" px-8 py-3 border-2 border-dongker">Status</th>
             <th className="px-8 py-3 border-2 border-dongker">Action</th>
@@ -56,22 +67,31 @@ const Request: NextPage = () => {
             <td className="text-center border-2 border-dongker">{item.id_request}</td>
             <td className="px-4 text-center border-2 border-dongker break-words">{item.recipe_name}</td>
             <td className="px-4 text-center border-2 border-dongker break-words">{item.count_request}</td>
-            <td className="px-4 text-center border-2 border-dongker break-words">{item.material_name}</td>
-            <td className="px-4 text-center border-2 border-dongker break-words">{item.amount * item.count_request}</td>
-            <td className="px-4 text-center border-2 border-dongker break-words">{item.material_stock}</td>
             <td className="px-4 text-center border-2 border-dongker break-words">{item.ip_store}</td>
             <td className="px-4 text-center border-2 border-dongker break-words">{item.status_request}</td>
             <td className="text-center border-2 border-dongker">
-              <a href={"http://localhost:4000/declineRequest/"+item.id_request}>
-                <button className="bg-red-500 text-white m-2 p-2 px-4 my-1 rounded-lg">
+              {item.status_request == "WAITING" ? 
+                  <button onClick={ () => requestDecline(item.id_request)} className="bg-red-500 text-white m-2 p-2 px-4 my-1 rounded-lg">
+                    DECLINE
+                  </button>
+                : 
+                <button className="bg-red-900 text-white m-2 p-2 px-4 my-1 rounded-lg">
                   DECLINE
                 </button>
-              </a>
-              <a href={"http://localhost:4000/acceptRequest/"+item.id_request}>
-                <button className="bg-blue-500 text-white m-2 p-2 px-4 my-1 rounded-lg">
+              }
+
+              {item.status_request == "WAITING" ? 
+                
+                  <button onClick={ () => requestAccept(item.id_request)} className="bg-blue-500 text-white m-2 p-2 px-4 my-1 rounded-lg">
+                    ACCEPT
+                  </button>
+ 
+                : 
+                <button className="bg-blue-900 text-white m-2 p-2 px-4 my-1 rounded-lg">
                   ACCEPT
                 </button>
-              </a>
+        
+              }
               </td>
           </tr>
           ))}         
