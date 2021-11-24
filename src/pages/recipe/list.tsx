@@ -31,7 +31,7 @@ const Recipe: NextPage = () => {
           <span className="text-2xl text-left font-title my-auto">Terdapat {listRecipe.length} Resep</span>
           <Link  href="/recipe/add">
             <a>
-              <button className="bg-blue_button rounded-lg text-white text-lg px-2 h-12">Add Recipe</button>
+              <button className="bg-blue_button rounded-lg text-white text-lg px-2 h-12">Add New Recipe</button>
             </a>
           </Link>
           </div>
