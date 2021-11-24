@@ -15,9 +15,9 @@ const Home: NextPage = () => {
         <Navbar />
         <div className="flex flex-col content-center mt-24">
           <div className="flex-grow flex m-auto items-stretch flex-col lg:flex-row lg:justify-around">
-            <Card link="/request" img="/images/request.svg" name="DAFTAR REQUEST" />
-            <Card link="/recipe/list" img="/images/resep.svg" name="MANAJEMEN RESEP" />
-            <Card link="/material/list" img="/images/bahan_baku.svg" name="MANAJEMEN BAHAN BAKU" />
+            <Card link="/request/list" img="/images/request.svg" name="Request List" />
+            <Card link="/recipe/list" img="/images/resep.svg" name="Recipe Management" />
+            <Card link="/material/list" img="/images/bahan_baku.svg" name="Ingredient Management" />
           </div>
         </div>
       </div>

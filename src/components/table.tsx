@@ -34,10 +34,10 @@ function Table(props) {
                           </td>
                           <td className="border-t-0 px-6 border-l-0 border-r-0 text-xs p-4">
                             <a href="#" className="bg-red-500 hover:bg-red-700 text-white text-center py-2 px-4 rounded mr-3">
-                              DELETE
+                              DECLINE
                             </a>
                             <a href="#" className="bg-blue-500 hover:bg-blue-700 text-white text-center py-2 px-4 rounded mr-3">
-                              EDIT
+                              ACCEPT
                             </a> 
                           </td>
                         </tr>

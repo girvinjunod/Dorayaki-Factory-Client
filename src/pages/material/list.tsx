@@ -49,7 +49,7 @@ const Material: NextPage = () => {
             <td className="px-4 text-left border-2 border-dongker break-words">{item.material_name}</td>
             <td className="px-4 text-left border-2 border-dongker break-words">{item.material_stock}</td>
             <td className="text-center border-2 border-dongker">
-              <a  href={"editMaterial/"+item.id_material}> {/* TODO: Ganti ke Edit Material */}
+              <a  href={"/material/edit/"+item.id_material}>
                 <button className="bg-blue_button text-white p-2 px-4 my-1 rounded-lg">
                   Edit
                 </button>
