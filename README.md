@@ -1,34 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#Cara Menjalankan
+##Melalui Lokal
+1. Pastikan sudah install Node.js dan npm
+2. Jalankan `npm install`
+3. Untuk menjalankan aplikasi di production mode, jalankan `npm run build` dan `npm run start`
+4. Aplikasi dapat diakses di localhost port 3000 melalui web browser
+##Melalui Docker
+1. Pastikan sudah install Docker dan Docker Compose
+2. Jalankan `docker-compose up`
+3. Aplikasi dapat diakses di localhost port 3000 melalui web browser
+#Deskripsi
+Aplikasi untuk client dorayaki factory ini dibuat dengan menggunakan Next.js sebagai framework React. Digunakan juga framework CSS yaitu Tailwind CSS untuk styling. Pengembangan aplikasi dilakukan menggunakan TypeScript. Aplikasi ini berupa antarmuka di web untuk pabrik dorayaki, di mana admin dapat melihat daftar dan detail resep, menambah resep, melihat daftar bahan baku resep, dan mengatur stok bahan baku. Selain itu, pada situs web juga terdapat daftar request di mana admin dapat melihat request dari toko untuk dorayaki berdasarkan resep dan tombol untuk menerima atau menolak request tersebut. Untuk autentikasi pengguna, terdapat fitur login dan register beserta autentikasi melalui JWT token. Token JWT pengguna disimpan di HTTP only cookie yang akan digunakan untuk verifikasi pengguna melalui komunikasi dengan server di backend.
+#Screenshot Tampilan Aplikasi
 
-## Getting Started
+#Pembagian Tugas
+Login + JWT Auth: 13519096
+Register: 13519096
+Detail resep: 13519096
+Daftar Resep: 13519090
+Tambah Resep: 13519090
+Daftar Bahan Baku: 13519090
+Tambah Bahan Baku: 13519090
+Edit bahan baku: 13519048
+Daftar Request: 13519048
+Docker: 13519096
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
