@@ -1,18 +1,18 @@
 import React, { useMemo } from 'react';
-import { useTable } from 'react-table';
+import { useTable, useSortBy, useGlobalFilter } from 'react-table';
 import { COLUMNS } from './columns'
 import type { NextPage } from 'next'
-import { useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import Navbar from '../../components/navbar'
 import Head from 'next/head'
+import { GlobalFilter } from './GlobalFilter';
 
 const Request: NextPage = () => {
 
     const router = useRouter()
     const [listRequest, setlistRequest] = useState([]);
-    const [error, seterror] = useState('');
     const columns = useMemo(() => COLUMNS, []);
     const [requestAccepted, setrequestAccepted] = useState('');
     const [requestDeclined, setrequestDeclined] = useState('');
@@ -20,15 +20,22 @@ const Request: NextPage = () => {
     const tableInstance = useTable({
         columns,
         data : listRequest
-    })
+    },
+    useGlobalFilter,
+    useSortBy
+    )
 
     const {
         getTableProps,
         getTableBodyProps,
         headerGroups,
         rows,
-        prepareRow
+        prepareRow,
+        state,
+        setGlobalFilter
     } = tableInstance
+
+    const { globalFilter } = state
 
     function requestAccept(id) {
       console.log("request accepted")
@@ -73,6 +80,7 @@ const Request: NextPage = () => {
                     <span className=" font-bold text-4xl mt-10 font-title">Request List</span>
                     <div className="flex flex-row justify-between w-full px-[16rem] items-center mt-5">
                     <span className="text-2xl text-left font-title my-auto">Terdapat {listRequest.length} Material</span>
+                    <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
                     </div>
 
                     <table className="mt-10 text-lg font-text" {...getTableProps()}>
@@ -80,7 +88,12 @@ const Request: NextPage = () => {
                             {headerGroups.map((headerGroup) => (
                                 <tr className="border-2 border-dongker" {...headerGroup.getHeaderGroupProps() }>
                                     {headerGroup.headers.map((column) => (
-                                        <th className=" px-8 py-3 border-2 border-dongker" {...column.getHeaderProps()}> {column.render('Header')} </th>
+                                        <th className=" px-8 py-3 border-2 border-dongker" {...column.getHeaderProps(column.getSortByToggleProps())}> 
+                                          {column.render('Header')}
+                                          <span>
+                                            {column.isSorted ? (column.isSortedDesc ? ' ⬇️' : ' ⬆️') : ''}
+                                          </span>
+                                        </th>
                                         ))}
                                     <th className="px-8 py-3 border-2 border-dongker">Action</th>
                                 </tr>
