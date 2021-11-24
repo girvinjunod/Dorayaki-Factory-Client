@@ -18,7 +18,7 @@ const Request: NextPage = () => {
   function requestAccept(id) {
     console.log("request accepted")
     axios.post('http://localhost:4000/acceptRequest/'+id).then(res => {
-      console.log("request id set")
+      seterror(res.data.err)
       setrequestAccepted(id)
     })
   }
@@ -69,29 +69,32 @@ const Request: NextPage = () => {
             <td className="px-4 text-center border-2 border-dongker break-words">{item.count_request}</td>
             <td className="px-4 text-center border-2 border-dongker break-words">{item.ip_store}</td>
             <td className="px-4 text-center border-2 border-dongker break-words">{item.status_request}</td>
-            <td className="text-center border-2 border-dongker">
-              {item.status_request == "WAITING" ? 
-                  <button onClick={ () => requestDecline(item.id_request)} className="bg-red-500 text-white m-2 p-2 px-4 my-1 rounded-lg">
+            <td className="text-center border-2 border-dongker flex flex-col">
+              <div className="">
+                {item.status_request == "WAITING" ? 
+                    <button onClick={ () => requestDecline(item.id_request)} className="bg-red-500 text-white m-2 p-2 px-4 my-1 rounded-lg">
+                      DECLINE
+                    </button>
+                  : 
+                  <button className="bg-red-900 text-white m-2 p-2 px-4 my-1 rounded-lg">
                     DECLINE
                   </button>
-                : 
-                <button className="bg-red-900 text-white m-2 p-2 px-4 my-1 rounded-lg">
-                  DECLINE
-                </button>
-              }
+                }
 
-              {item.status_request == "WAITING" ? 
-                
-                  <button onClick={ () => requestAccept(item.id_request)} className="bg-blue-500 text-white m-2 p-2 px-4 my-1 rounded-lg">
+                {item.status_request == "WAITING" ? 
+
+                    <button onClick={ () => requestAccept(item.id_request)} className="bg-blue-500 text-white m-2 p-2 px-4 my-1 rounded-lg">
+                      ACCEPT
+                    </button>
+  
+                  : 
+                  <button className="bg-blue-900 text-white m-2 p-2 px-4 my-1 rounded-lg">
                     ACCEPT
                   </button>
- 
-                : 
-                <button className="bg-blue-900 text-white m-2 p-2 px-4 my-1 rounded-lg">
-                  ACCEPT
-                </button>
-        
-              }
+
+                }
+              </div>
+              <span className="mx-auto font-title text-md text-red-600">{error}</span>
               </td>
           </tr>
           ))}         
