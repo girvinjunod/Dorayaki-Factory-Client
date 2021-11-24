@@ -13,15 +13,15 @@ Aplikasi untuk client dorayaki factory ini dibuat dengan menggunakan Next.js seb
 # Screenshot Tampilan Aplikasi
 
 # Pembagian Tugas
-Login + JWT Auth: 13519096
-Register: 13519096
-Detail resep: 13519096
-Daftar Resep: 13519090
-Tambah Resep: 13519090
-Daftar Bahan Baku: 13519090
-Tambah Bahan Baku: 13519090
-Edit bahan baku: 13519048
-Daftar Request: 13519048
-Docker: 13519096
+- Login + JWT Auth: 13519096
+- Register: 13519096
+- Detail resep: 13519096
+- Daftar Resep: 13519090
+- Tambah Resep: 13519090
+- Daftar Bahan Baku: 13519090
+- Tambah Bahan Baku: 13519090
+- Edit bahan baku: 13519048
+- Daftar Request: 13519048
+- Docker: 13519096
 
 
