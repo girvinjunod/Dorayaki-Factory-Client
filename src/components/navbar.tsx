@@ -46,10 +46,10 @@ const Navbar = () => {
               <div>
                 <div className="w-full block flex-grow lg:flex lg:items-end lg:w-auto lg:justify-end">
                   <div className="text-sm flex flex-col items-end justify-end lg:flex-grow lg:flex-row lg:items-center">
-                    <Link href="/request" passHref><span className="block mt-4 mx-3 lg:inline-block lg:mt-0 text-teal-200 hover:text-white cursor-pointer text-lg">Request List</span></Link>
-                    <Link href="/recipe/list" passHref><span className="block mt-4 mx-3 lg:inline-block lg:mt-0 text-teal-200 hover:text-white cursor-pointer text-lg">Recipe Management</span></Link>
-                    <Link href="/material/list" passHref><span className="block mt-4 mx-3 lg:inline-block lg:mt-0 text-teal-200 hover:text-white cursor-pointer text-lg">Ingredient Management</span></Link>
-                    <a href="#responsive-header" className="block mt-4 mx-3 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mb-4 lg:mb-0 w-36 text-center text-lg">
+                    <Link href="/request" passHref><span className="block mt-4 mx-3 lg:inline-block lg:mt-0 text-teal-200 hover:text-white cursor-pointer">Request List</span></Link>
+                    <Link href="/recipe/list" passHref><span className="block mt-4 mx-3 lg:inline-block lg:mt-0 text-teal-200 hover:text-white cursor-pointer">Recipe Management</span></Link>
+                    <Link href="/material/list" passHref><span className="block mt-4 mx-3 lg:inline-block lg:mt-0 text-teal-200 hover:text-white cursor-pointer">Ingredient Management</span></Link>
+                    <a href="#responsive-header" className="block mt-4 mx-3 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mb-4 lg:mb-0 w-36 text-center">
                       Username: {username}
                     </a>
                     <button onClick={logout} className="mx-3 font-text cursor-pointer p-3 bg-blue-200 text-blue-900 rounded-lg px-10 
