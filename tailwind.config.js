@@ -18,7 +18,8 @@ module.exports = {
       },
       backgroundImage:{
         default: 'url(~/public/images/background.svg)',
-        close: 'url(~/public/images/close.svg)'
+        close: 'url(~/public/images/close.svg)',
+        gear: 'url(~/public/images/gear.png)'
       }
     },
   },

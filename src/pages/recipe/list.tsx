@@ -35,7 +35,7 @@ const Recipe: NextPage = () => {
             </a>
           </Link>
           </div>
-          <table className="mt-10 text-lg font-text">
+          <table className="my-10 text-lg font-text">
           <tr className="border-2 border-dongker">
             <th className="px-8 py-3 border-2 border-dongker">Id</th>
             <th className="w-[46rem] px-8 py-3 border-2 border-dongker">Recipe Name</th>
