@@ -18,5 +18,9 @@ export const COLUMNS = [
   {
     Header : 'Status',
     accessor : 'status_request'
+  },
+  {
+    Header : 'Created Time',
+    accessor : 'created_timestamp'
   }
 ]
