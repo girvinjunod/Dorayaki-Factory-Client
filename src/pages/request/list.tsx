@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import Navbar from '../../components/navbar'
 import Head from 'next/head'
-import GlobalFilter from './GlobalFilter';
+import GlobalFilter from '../../components/GlobalFilter';
 
 const Request: NextPage = () => {
     const COLUMNS = [
@@ -97,16 +97,16 @@ const Request: NextPage = () => {
                 <title>Request List</title>
                 <meta name="description" content="Dorayaki factory"/>
             </Head>
-            <div className="flex flex-col h-[100vh]">
+            <div className="flex flex-col min-h-[100vh]">
                 <Navbar />
-                <div className="flex flex-col items-center h-[100vh] bg-blue-300 flex-auto">
+                <div className="flex flex-col items-center min-h-[100vh] bg-blue-300 flex-auto">
                     <span className=" font-bold text-4xl mt-10 font-title">Request List</span>
                     <div className="flex flex-row justify-between w-full px-[16rem] items-center mt-5">
                     <span className="text-2xl text-left font-title my-auto">Terdapat {listRequest.length} Material</span>
                     <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
                     </div>
 
-                    <table className="mt-10 text-lg font-text" {...getTableProps()}>
+                    <table className="my-10 text-lg font-text" {...getTableProps()}>
                         <thead>
                             {headerGroups.map((headerGroup) => (
                                 <tr key={headerGroup.headers} className="border-2 border-dongker" {...headerGroup.getHeaderGroupProps() }>
@@ -134,21 +134,21 @@ const Request: NextPage = () => {
                                         <td className="text-center border-2 border-dongker flex flex-col">
                                           <div className="">
                                             {row.values.status_request == "WAITING" ? 
-                                                <button onClick={ () => requestDecline(row.values.id_request)} className="bg-red-500 text-white m-2 p-2 px-4 my-1 rounded-lg">
+                                                <button onClick={ () => requestDecline(row.values.id_request)} className="bg-red-700 text-white m-2 p-2 px-4 my-1 rounded-lg">
                                                   DECLINE
                                                 </button>
                                               : 
-                                              <button className="bg-red-900 text-white m-2 p-2 px-4 my-1 rounded-lg">
+                                              <button className="bg-red-900 text-white m-2 p-2 px-4 my-1 rounded-lg cursor-not-allowed">
                                                 DECLINE
                                               </button>
                                             }
 
                                             {row.values.status_request == "WAITING" ? 
-                                                <button onClick={ () => requestAccept(row.values.id_request)} className="bg-blue-500 text-white m-2 p-2 px-4 my-1 rounded-lg">
+                                                <button onClick={ () => requestAccept(row.values.id_request)} className="bg-blue-700 text-white m-2 p-2 px-4 my-1 rounded-lg">
                                                   ACCEPT
                                                 </button>
                                               : 
-                                              <button className="bg-blue-900 text-white m-2 p-2 px-4 my-1 rounded-lg">
+                                              <button className="bg-blue-900 text-white m-2 p-2 px-4 my-1 rounded-lg cursor-not-allowed">
                                                 ACCEPT
                                               </button>
                                             }
