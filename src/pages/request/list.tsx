@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import Navbar from '../../components/navbar'
 import Head from 'next/head'
-import GlobalFilter from './GlobalFilter';
+import GlobalFilter from '../../components/GlobalFilter';
 
 const Request: NextPage = () => {
     const COLUMNS = [
