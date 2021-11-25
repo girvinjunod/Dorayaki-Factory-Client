@@ -28,7 +28,7 @@ const Navbar = () => {
                 router.push('/login')
             }
     })
-    }, [router])
+    }, [router, username])
 
     return (
         <div className="bg-blue-900 text-white px-6 flex justify-around items-center w-full flex-initial">

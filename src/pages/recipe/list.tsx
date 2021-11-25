@@ -16,7 +16,7 @@ const Recipe: NextPage = () => {
       setlistRecipe(res.data.part)
       console.log(listRecipe)
     })
-  }, [router])
+  }, [router, listRecipe])
   return(
     <>
         <Head>
@@ -36,6 +36,7 @@ const Recipe: NextPage = () => {
           </Link>
           </div>
           <table className="my-10 text-lg font-text">
+          <tbody>
           <tr className="border-2 border-dongker">
             <th className="px-8 py-3 border-2 border-dongker">Id</th>
             <th className="w-[46rem] px-8 py-3 border-2 border-dongker">Recipe Name</th>
@@ -56,7 +57,7 @@ const Recipe: NextPage = () => {
               </td>
           </tr>
           ))}         
-
+          </tbody>
           </table>
         </div>
         {/* <h1>{listRecipe}</h1> */}

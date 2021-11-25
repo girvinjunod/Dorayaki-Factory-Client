@@ -16,7 +16,7 @@ const Material: NextPage = () => {
       setlistMaterial(res.data.part)
       console.log(listMaterial)
     })
-  }, [router])
+  }, [router, listMaterial])
   return(
     <>
         <Head>
@@ -37,6 +37,7 @@ const Material: NextPage = () => {
 
           </div>
           <table className="my-10 text-lg font-text">
+          <tbody>
           <tr className="border-2 border-dongker">
             <th className="px-8 py-3 border-2 border-dongker">Id</th>
             <th className="w-[46rem] px-8 py-3 border-2 border-dongker">Material Name</th>
@@ -44,7 +45,7 @@ const Material: NextPage = () => {
             <th className="px-8 py-3 border-2 border-dongker">Action</th>
           </tr>
           {listMaterial.map(item => (
-          <tr key={item.id_Material}>
+          <tr key={item.id_material}>
             <td className="text-center border-2 border-dongker">{item.id_material}</td>
             <td className="px-4 text-left border-2 border-dongker break-words">{item.material_name}</td>
             <td className="px-4 text-left border-2 border-dongker break-words">{item.material_stock}</td>
@@ -57,7 +58,7 @@ const Material: NextPage = () => {
               </td>
           </tr>
           ))}         
-
+          </tbody>
           </table>
         </div>
         </div>
