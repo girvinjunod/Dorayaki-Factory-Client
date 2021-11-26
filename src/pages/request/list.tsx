@@ -15,15 +15,15 @@ const Request: NextPage = () => {
         accessor : 'id_request'
       },
       {
-        Header : 'Recipe Name',
+        Header : 'Recipe',
         accessor : 'recipe_name'
       },
       {
-        Header : 'Count Request',
+        Header : 'Count',
         accessor : 'count_request'
       },
       {
-        Header : 'IP Store',
+        Header : 'Store IP',
         accessor : 'ip_store'
       },
       {
@@ -31,7 +31,7 @@ const Request: NextPage = () => {
         accessor : 'status_request'
       },
       {
-        Header : 'Created Time',
+        Header : 'Time Created (UTC)',
         accessor : 'created_timestamp'
       }
     ]
@@ -45,7 +45,7 @@ const Request: NextPage = () => {
       axios.post('http://localhost:4000/acceptRequest/'+id).then(res => {
         // seterror(res.data.err)
         if (res.data.err == "Amount not sufficient") {
-            alert("Amount not sufficient")
+            alert("Not enough ingredients")
         }
         setrequestAccepted(id)
       })
@@ -102,7 +102,7 @@ const Request: NextPage = () => {
                 <div className="flex flex-col items-center min-h-[100vh] bg-blue-300 flex-auto">
                     <span className=" font-bold text-4xl mt-10 font-title">Request List</span>
                     <div className="flex flex-row justify-between w-full px-[16rem] items-center mt-5">
-                    <span className="text-2xl text-left font-title my-auto">Terdapat {listRequest.length} Material</span>
+                    <span className="text-2xl text-left font-title my-auto"></span>
                     <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
                     </div>
 
@@ -114,7 +114,7 @@ const Request: NextPage = () => {
                                         <th key={column} className=" px-8 py-3 border-2 border-dongker" {...column.getHeaderProps(column.getSortByToggleProps())}> 
                                           {column.render('Header')}
                                           <span>
-                                            {column.isSorted ? (column.isSortedDesc ? ' ⬇️' : ' ⬆️') : ''}
+                                            {column.isSorted ? (column.isSortedDesc ? ' ↓' : ' ↑') : ' ↕'}
                                           </span>
                                         </th>
                                         ))}
@@ -134,24 +134,24 @@ const Request: NextPage = () => {
                                         <td className="text-center border-2 border-dongker flex flex-col">
                                           <div className="">
                                             {row.values.status_request == "WAITING" ? 
-                                                <button onClick={ () => requestDecline(row.values.id_request)} className="bg-red-700 text-white m-2 p-2 px-4 my-1 rounded-lg">
-                                                  DECLINE
-                                                </button>
-                                              : 
-                                              <button className="bg-red-900 text-white m-2 p-2 px-4 my-1 rounded-lg cursor-not-allowed">
-                                                DECLINE
-                                              </button>
-                                            }
-
-                                            {row.values.status_request == "WAITING" ? 
                                                 <button onClick={ () => requestAccept(row.values.id_request)} className="bg-blue-700 text-white m-2 p-2 px-4 my-1 rounded-lg">
                                                   ACCEPT
                                                 </button>
                                               : 
-                                              <button className="bg-blue-900 text-white m-2 p-2 px-4 my-1 rounded-lg cursor-not-allowed">
+                                              <button className="bg-blue-700 opacity-50  text-white m-2 p-2 px-4 my-1 rounded-lg cursor-not-allowed">
                                                 ACCEPT
                                               </button>
                                             }
+                                            {row.values.status_request == "WAITING" ? 
+                                                <button onClick={ () => requestDecline(row.values.id_request)} className="bg-red-700 text-white m-2 p-2 px-4 my-1 rounded-lg">
+                                                  DECLINE
+                                                </button>
+                                              : 
+                                              <button className="bg-red-700 opacity-50 text-white m-2 p-2 px-4 my-1 rounded-lg cursor-not-allowed">
+                                                DECLINE
+                                              </button>
+                                            }
+
                                           </div>
                                         </td>
 

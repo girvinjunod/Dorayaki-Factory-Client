@@ -33,18 +33,18 @@ const MaterialAdd: NextPage = () => {
   return(
     <>
       <Head>
-      <title>Add New Material</title>
+      <title>Add New Ingredient</title>
       <meta name="description" content="Dorayaki factory"/>
       </Head>
       <div className="flex flex-col h-[100vh]">
       <Navbar />
-        <div className="flex h-[100vh] w-[100vw] bg-blue-300 flex-auto bg-default bg-cover items-center text-center justify-center">
-          <div className="flex flex-col w-96 h-[fit-content] bg-dongker text-white py-6 px-8 rounded-xl">
-            <span className="mx-auto font-title text-4xl mb-10">Add New Material</span>
-            <input type="text" placeholder="Nama Bahan Baku" value={namaMaterial} onChange ={(e) => setnamaMaterial(e.target.value)} className=" px-2 py-1 rounded-md my-2 text-black" />
-            <input min={1} type="number" placeholder="Stok Bahan Baku" value={stokMaterial} onChange ={(e) => setstokMaterial(e.target.value)} className=" px-2 py-1 rounded-md my-2 text-black" />
+        <div className="flex h-[100vh] w-[100vw] bg-blue-300 flex-auto bg-cover items-center text-center justify-center">
+          <div className="flex flex-col h-[fit-content] bg-dongker text-white py-6 px-8 rounded-xl">
+            <span className="mx-auto font-title text-4xl mb-10">Add New Ingredient</span>
+            <input type="text" placeholder="Ingredient Name" value={namaMaterial} onChange ={(e) => setnamaMaterial(e.target.value)} className=" px-2 py-1 rounded-md my-2 text-black" />
+            <input min={1} type="number" placeholder="Ingredient Initial Stock" value={stokMaterial} onChange ={(e) => setstokMaterial(e.target.value)} className=" px-2 py-1 rounded-md my-2 text-black" />
             <span className="mx-auto font-title text-md mb-5 text-light_blue">{error}</span>
-            <button onClick={onsubmit} className="ml-auto my-2 bg-blue_button hover:bg-blue-600 duration-200 rounded-lg text-white text-lg px-2 h-10 w-32 right-0">Add Material</button>
+            <button onClick={onsubmit} className="ml-auto my-2 bg-blue_button hover:bg-blue-600 duration-200 rounded-lg text-white text-lg px-2 h-10 right-0">Add Ingredient</button>
           </div>
         </div>
 
