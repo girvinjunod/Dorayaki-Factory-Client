@@ -31,7 +31,7 @@ const Request: NextPage = () => {
         accessor : 'status_request'
       },
       {
-        Header : 'Time Created',
+        Header : 'Time Created (UTC)',
         accessor : 'created_timestamp'
       }
     ]
@@ -45,7 +45,7 @@ const Request: NextPage = () => {
       axios.post('http://localhost:4000/acceptRequest/'+id).then(res => {
         // seterror(res.data.err)
         if (res.data.err == "Amount not sufficient") {
-            alert("Amount not sufficient")
+            alert("Not enough ingredients")
         }
         setrequestAccepted(id)
       })
