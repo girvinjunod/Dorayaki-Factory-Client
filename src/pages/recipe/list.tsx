@@ -16,29 +16,29 @@ const Recipe: NextPage = () => {
       setlistRecipe(res.data.part)
       console.log(listRecipe)
     })
-  }, [router, listRecipe])
+  }, [router])
   return(
     <>
         <Head>
         <title>Recipe List</title>
         <meta name="description" content="Dorayaki factory"/>
         </Head>
-        <div className="flex flex-col h-[100vh]">
+        <div className="flex flex-col min-h-[100vh]">
         <Navbar />
-        <div className="flex flex-col items-center h-[100vh] bg-blue-300 flex-auto">
+        <div className="flex flex-col items-center min-h-[100vh] bg-blue-300 flex-auto">
           <span className=" font-bold text-4xl mt-10 font-title">Recipe List</span>
           <div className="flex flex-row justify-between w-full px-[16rem] items-center mt-5">
-          <span className="text-2xl text-left font-title my-auto">Terdapat {listRecipe.length} Resep</span>
+          <span className="text-2xl text-left font-title my-auto"></span>
           <Link  href="/recipe/add">
             <a>
-              <button className="bg-blue_button rounded-lg text-white text-lg px-2 h-12">Add New Recipe</button>
+              <button className="bg-blue_button rounded-lg text-white text-lg px-2 h-12 hover:bg-blue-700 duration-500">Add New Recipe</button>
             </a>
           </Link>
           </div>
           <table className="my-10 text-lg font-text">
           <tbody>
           <tr className="border-2 border-dongker">
-            <th className="px-8 py-3 border-2 border-dongker">Id</th>
+            <th className="px-8 py-3 border-2 border-dongker">ID</th>
             <th className="w-[46rem] px-8 py-3 border-2 border-dongker">Recipe Name</th>
             <th className="px-8 py-3 border-2 border-dongker">Action</th>
           </tr>
@@ -49,7 +49,7 @@ const Recipe: NextPage = () => {
             <td className="text-center border-2 border-dongker">
               <Link href={"/details-recipe/"+item.id_recipe}>
                 <a >
-                  <button className="bg-blue_button text-white p-2 px-4 my-1 rounded-lg">
+                  <button className="bg-blue_button text-white p-2 px-4 my-1 rounded-lg hover:bg-blue-700 duration-500">
                     Details
                   </button>
                 </a>
