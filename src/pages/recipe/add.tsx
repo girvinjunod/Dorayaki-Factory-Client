@@ -116,7 +116,7 @@ const RecipeAdd: NextPage = () => {
       </Head>
       <div className="flex flex-col min-h-[100vh] ">
       <Navbar />
-        <div className="flex bg-blue-300 min-h-[100vh] bg-cover bg-center items-center text-center justify-center flex-auto">
+        <div className="flex bg-blue-300 min-h-[100vh] items-center text-center justify-center flex-auto">
           <div className="flex flex-col w-100 my-[5%] bg-dongker text-white py-6 px-8 rounded-xl">
             <span className="mx-auto font-title text-4xl mb-10">Add New Recipe</span>
             <input type="text" placeholder="Recipe Name" value={namaRecipe} onChange ={(e) => setnamaRecipe(e.target.value)} className=" px-2 py-1 rounded-md my-2 text-black" />

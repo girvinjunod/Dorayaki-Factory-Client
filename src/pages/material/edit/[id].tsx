@@ -64,7 +64,7 @@ const MaterialEdit: NextPage = () => {
       <div className="flex flex-col h-[100vh]">
       <Navbar />
         {idState == 1 ?
-        <div className="flex h-[100vh] w-[100vw] bg-blue-300 flex-auto bg-default bg-cover items-center text-center justify-center">
+        <div className="flex h-[100vh] w-[100vw] bg-blue-300 flex-auto items-center text-center justify-center">
         <div className="flex flex-col w-96 h-[fit-content] bg-dongker text-white py-6 px-8 rounded-xl">
         <span className="mx-auto font-title text-4xl mb-10">Edit Material</span>
         <input type="text" disabled placeholder="Nama Bahan Baku" value={namaMaterial} onChange ={(e) => setnamaMaterial(e.target.value)} className=" px-2 py-1 rounded-md my-2 text-black bg-gray-100" />
