@@ -114,7 +114,7 @@ const Request: NextPage = () => {
                                         <th key={column} className=" px-8 py-3 border-2 border-dongker" {...column.getHeaderProps(column.getSortByToggleProps())}> 
                                           {column.render('Header')}
                                           <span>
-                                            {column.isSorted ? (column.isSortedDesc ? ' ⬇️' : ' ⬆️') : ''}
+                                            {column.isSorted ? (column.isSortedDesc ? ' ↓' : ' ↑') : ' ↕'}
                                           </span>
                                         </th>
                                         ))}
